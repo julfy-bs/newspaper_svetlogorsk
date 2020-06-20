@@ -1,0 +1,23 @@
+.news {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.news__row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  &--link {
+    justify-content: start;
+    margin-bottom: 40px;
+  }
+}
+
+.news__column {
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
