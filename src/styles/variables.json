@@ -2,6 +2,7 @@
   "text-color": "#000", 
   "links-color": "#006ed3",
   "line-color": "#d1d1d1",
+  "grey": "#919191",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
   "bp-tablets": "768px",
