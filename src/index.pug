@@ -228,3 +228,75 @@ html(lang="ru")
                 .news__data.news__data 19 Июня 2020 | 17:40
             .news__row.news__row--link 
               a.news__link(href="#") Все официальные новости
+          section.section.slider-form
+            .news__row.news__row--slider-form
+              .slider-form__wrapper
+                .news__column
+                  h1.section__title Фотогалерея
+                  .slider__wrapper
+                    .slider__row
+                      .slider__left
+                        - var icons = ["menu"]
+                          each item in icons
+                            +icon(item, "menu-icon")
+                      .slider__main
+                        +image("content/slider1.jpg", "img--small popular__img")
+                      .slider__right
+                        - var icons = ["menu"]
+                          each item in icons
+                            +icon(item, "menu-icon")
+                    .slider__row
+                      h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
+                      .news__data.news__data 19 Июня 2020 | 17:40
+                .news__column
+                  h1.section__title Обратная связь
+                  .form__wrapper
+                    form.form
+                      .form__row
+                        label.form__block
+                          input(type="text" name="name" placeholder="Имя" required).form__input.form__input--name
+                          .form__error
+                      .form__row
+                        label.form__block
+                          .form__label Введите ваш email
+                          input(type="email" name="name" placeholder="Ваш E-mail" required).form__input.form__input--email
+                          .form__error
+                      .form__row
+                        label.form__block
+                          .form__label Сообщение к письму
+                          textarea(name="comment" placeholder="Текст сообщения (123 символа) ... " required).form-input.form-input_textarea
+                      .g-recaptcha
+                      .form__row
+                        input(type="text" name="" placeholder="Введите код с картинки" required).form__input.form__input--name
+                        .form__error
+                      .form__row
+                        input(type="submit" value="Отправить").form__button  
+            .news__row--socials
+              - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
+                ul.socials
+                  each item in icons
+                    li.socials__item
+                      a(href="#").socials__link
+                        +icon(item, "socials__icon")          
+        footer.footer
+          .footer__left
+            .contacts
+              .contacts__address
+                span.bold Адрес редакции:  <br>
+                p 238560, Калининградская область, <br>г. Светлогорск, <br> Калининградский проспект, 77а
+              .contacts__phone
+                span.bold Телефон/факс: <br>
+                p 8 (40153) 333-05
+              .contacts__email      
+                span.bold E-mail:
+                p info@svetvestnik.ru
+          .footer__right
+            p.text Перепечатка материалов – с разрешения редакции.<br>За достоверность рекламы ответственность несёт рекламодатель.<br>Все рекламируемые товары и услуги подлежат сертификации и лицензированию.<br>Мнения авторов и редакции могут не совпадать.
+            p.info Справки по объявлениям - у рекламодателя
+            p.copyright © Вестник Светлогорска «svetvestnik.ru» 2020 <br> © Информационное агентство Инфорос 2020 
+
+      .button-to-top 
+        .button-to-top__wrapper
+          - var icons = ["arrow-down"]
+            each item in icons
+              +icon(item, "arrow-up__icon")
