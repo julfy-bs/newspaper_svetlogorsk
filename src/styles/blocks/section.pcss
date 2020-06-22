@@ -13,7 +13,14 @@
   margin-bottom: 60px;
   padding-left: 20px;
 
-  &:hover {
-    cursor: pointer;
+  &--slider-form {
+    @include tablets {
+      margin-left: -120px;
+    }
+    
+    @include phones {
+      margin-left: 0;
+    }
   }
+
 }

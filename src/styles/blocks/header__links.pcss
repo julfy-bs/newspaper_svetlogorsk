@@ -5,6 +5,10 @@
 .header__socials {
   display: flex;
   flex-flow: row nowrap;
+
+  @include tablets {
+    display: none;
+  }
 }
 
 .socials__icon {

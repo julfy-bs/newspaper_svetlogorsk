@@ -1,0 +1,74 @@
+.slider__wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 535px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  &--title {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 30px;
+
+  }
+
+  @include phones {
+    max-width: 390px;
+    max-height: 380px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+.slider__left,
+.slider__right {
+  padding-bottom: 180px;
+
+  @include phones {
+    padding-bottom: 200px;
+  }
+}
+
+.slider__main {
+  width: 409px;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 20px;
+}
+
+.slider-img {
+  width: 409px;
+  height: 273px;
+
+  @include phones {
+    width: 280px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+}
+
+.slider-arrow--left {
+  transform: rotate(180deg);
+}
+
+.slider-arrow {
+  width: 25px;
+  height: 40px;
+  fill: $links-color;
+
+  &:hover {
+    fill: $text-color;
+    cursor: pointer;
+  }
+
+  &--inactive {
+    fill: $grey;
+
+    &:hover {
+      fill: $grey;
+    }
+  }
+}

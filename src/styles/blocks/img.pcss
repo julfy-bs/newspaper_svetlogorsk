@@ -3,14 +3,49 @@
   height: 230px;
   margin-bottom: 25px;
 
+  @include tablets {
+    max-width: 220px;
+    max-height: 150px;
+  }
+
+  @include phones {
+    max-width: 360px;
+    max-height: 250px;
+  }
+
   &--big {
     max-width: 720px;
     max-height: 350px;
+
+    @include tablets {
+      max-width: 420px;
+      max-height: 250px;
+    }
+
+    @include phones {
+      max-width: 360px;
+      max-height: 350px;
+    }
   }
 
   &--small {
     width: 250px;
     height: 170px;
     margin-bottom: 30px;
+
+    @include tablets {
+      max-width: 170px;
+      max-height: 130px;
+    }
+
+    @include phones {
+      max-width: 360px;
+      max-height: 350px;
+    }
+  }
+
+  &--captcha {
+    max-width: 100px;
+    max-height: 50px;
   }
 }

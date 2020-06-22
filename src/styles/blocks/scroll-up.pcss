@@ -12,6 +12,13 @@
   bottom: 150px;
   left: 150px;
   color: white;
+
+  @include desktop {
+    bottom: 50px;
+    left: 10px;
+    width: 45px;
+    height: 45px;
+  }
 }
 
 .button-to-top__wrapper {
@@ -30,5 +37,10 @@
 
   &:hover {
     background-color: $links-color;
+  }
+
+  @include desktop {
+    width: 45px;
+    height: 45px;
   }
 }

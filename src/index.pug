@@ -10,7 +10,7 @@ html(lang="ru")
   body
     .wrapper
       .container
-        section.section.welcome-section
+        section.section.welcome-section#welcome
           header.header
             .header__logo
               +image('content/logo.jpg', 'header__logo-img')
@@ -22,22 +22,37 @@ html(lang="ru")
                       a(href="#").socials__link
                         +icon(item, "socials__icon")
             .header__utility
-              .burger-menu
+              .burger-menu#hamburger-menu-link
                 - var icons = ["menu"]
                   each item in icons
                     +icon(item, "menu-icon")
-              .search
+              .search#search-link
                 - var icons = ["search"]
                   each item in icons
                     +icon(item, "search-icon")
-          nav.nav-menu
-            - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['hero-section', 'about-section', 'values-section', 'works-section', 'reviews-section', 'feedback-section']];
-              ul.nav-menu__list
+            nav.hamburger-menu#hamburger-menu
+              - var menu = [['Главное', 'Популярные публикации', 'В регионе', 'В России', 'В мире', 'Официально', 'Фотогалерея', 'Обратная связь'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form']];
+              ul.menu__list
                 each item, index in menu[0]
-                  li.nav-menu__item
-                    a.nav-menu__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+                  li.menu__item
+                    a.menu__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+              - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
+              ul.socials.hamburger-menu__socials
+                each item in icons
+                  li.socials__item
+                    a.socials__link(href="#" target="_blank")
+                      +icon(`${item}`, 'socials__icon')
+              a.close-button#close-nav-button(href="#")
+                +icon('remove', 'close-button__img', '20')
+
+          nav.nav-menu
+            - var menu = [['Главное', 'Популярные публикации', 'В регионе', 'В России', 'В мире', 'Официально', 'Фотогалерея', 'Обратная связь'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form']];
+            ul.nav-menu__list
+              each item, index in menu[0]
+                li.nav-menu__item
+                  a.nav-menu__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
         main.main
-          section.section.news
+          section.section.news#main
             h1.section__title Главное
             .news__row
               .news__item
@@ -58,7 +73,7 @@ html(lang="ru")
                 h3.news__title Стартовал конкурс студенческих работ «Профстажировки 2.0» собственности
                 p.news__intro Стартует вторая волна конкурса студенческих работ проекта «Профстажировки 2.0». «Профстажировки 2.0» - огромный выбор интересных тем для научной работы ...
                 .news__data 19 Июня 2020 | 17:40
-          section.section.popular
+          section.section.popular#popular
             h1.section__title Популярные публикации
             .news__row
               .news__item
@@ -134,7 +149,7 @@ html(lang="ru")
                 h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
                 p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
                 .news__data 19 Июня 2020 | 17:40
-          section.section.short
+          section.section.short#short
             .short__wrapper
               .news__column
                 h1.section__title В регионе
@@ -182,7 +197,7 @@ html(lang="ru")
               a.news__link(href="#") Все новости региона
               a.news__link(href="#") Все новости в России
               a.news__link(href="#") Все новости в мире
-          section.section.officially
+          section.section.officially#officially
             h1.section__title Официально
             .news__row
               .news__item
@@ -228,56 +243,64 @@ html(lang="ru")
                 .news__data.news__data 19 Июня 2020 | 17:40
             .news__row.news__row--link 
               a.news__link(href="#") Все официальные новости
-          section.section.slider-form
+          section.section.slider-form#slider-form
             .news__row.news__row--slider-form
-              .slider-form__wrapper
-                .news__column
-                  h1.section__title Фотогалерея
-                  .slider__wrapper
-                    .slider__row
+              .container
+                .slider-form__wrapper
+                  .news__column
+                    h1.section__title.section__title--slider-form Фотогалерея
+                    .slider__wrapper
                       .slider__left
-                        - var icons = ["menu"]
+                        - var icons = ["arrow-down"]
                           each item in icons
-                            +icon(item, "menu-icon")
+                            +icon(item, "slider-arrow--left slider-arrow")
                       .slider__main
-                        +image("content/slider1.jpg", "img--small popular__img")
+                        .slider__item
+                          +image("content/slider1.jpg", "img--slider slider-img popular__img")
+                          h3.news__title.news__title--slider Управляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий Управляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режиме
+                          .news__data.news__data--slider 19 Июня 2020 | 17:40
+                        .slider__item
+                          +image("content/1.jpg", "img--slider slider-img popular__img")
+
+                          h3.news__title.news__title--slider Управляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режиме 
+                          .news__data.news__data--slider 19 Июня 2020 | 17:40
+                        .slider__item
+                          +image("content/2.jpg", "img--slider slider-img popular__img")
+
+                          h3.news__title.news__title--slider Управляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режимеУправляющий ОПФР по Калининградской области рассказала об упрощении назначения ряда пенсий и пособий в проактивном режиме 
+                          .news__data.news__data--slider 19 Июня 2020 | 17:40
+
                       .slider__right
-                        - var icons = ["menu"]
+                        - var icons = ["arrow-down"]
                           each item in icons
-                            +icon(item, "menu-icon")
-                    .slider__row
-                      h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
-                      .news__data.news__data 19 Июня 2020 | 17:40
-                .news__column
-                  h1.section__title Обратная связь
-                  .form__wrapper
-                    form.form
-                      .form__row
-                        label.form__block
-                          input(type="text" name="name" placeholder="Имя" required).form__input.form__input--name
+                            +icon(item, "slider-arrow--right slider-arrow")
+                  .news__column
+                    h1.section__title.section__title--slider-form Обратная связь
+                    .form__wrapper
+                      form.form#form
+                        .form__row
+                          label.form__block
+                            input(type="text" name="name" placeholder="Имя" required).form__input.form__input--name
+                        .form__row
+                          label.form__block
+                            input(type="email" name="name" placeholder="Ваш E-mail" required).form__input.form__input--email
+                        .form__row
+                          label.form__block
+                            textarea(name="comment" placeholder="Текст сообщения (123 символа) ... " required).form-input.form-input__textarea
+                        .g-recaptcha
+                          +image("content/slider1.jpg", "img--captcha img")
+                        .form__row
+                          input(type="text" name="" placeholder="Введите код с картинки" required).form__input.form__input--name
                           .form__error
-                      .form__row
-                        label.form__block
-                          .form__label Введите ваш email
-                          input(type="email" name="name" placeholder="Ваш E-mail" required).form__input.form__input--email
-                          .form__error
-                      .form__row
-                        label.form__block
-                          .form__label Сообщение к письму
-                          textarea(name="comment" placeholder="Текст сообщения (123 символа) ... " required).form-input.form-input_textarea
-                      .g-recaptcha
-                      .form__row
-                        input(type="text" name="" placeholder="Введите код с картинки" required).form__input.form__input--name
-                        .form__error
-                      .form__row
-                        input(type="submit" value="Отправить").form__button  
-            .news__row--socials
-              - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
-                ul.socials
-                  each item in icons
-                    li.socials__item
-                      a(href="#").socials__link
-                        +icon(item, "socials__icon")          
+                        .form__row
+                          input(type="submit" value="Отправить").form__button#sendButton  
+              .news__row--socials
+                - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
+                  ul.socials
+                    each item in icons
+                      li.socials__item
+                        a(href="#").socials__link
+                          +icon(item, "socials__icon")          
         footer.footer
           .footer__left
             .contacts
@@ -296,7 +319,10 @@ html(lang="ru")
             p.copyright © Вестник Светлогорска «svetvestnik.ru» 2020 <br> © Информационное агентство Инфорос 2020 
 
       .button-to-top 
-        .button-to-top__wrapper
-          - var icons = ["arrow-down"]
-            each item in icons
-              +icon(item, "arrow-up__icon")
+        a(href="#welcome")
+          .button-to-top__wrapper
+            - var icons = ["arrow-down"]
+              each item in icons
+                +icon(item, "arrow-up__icon")
+
+        

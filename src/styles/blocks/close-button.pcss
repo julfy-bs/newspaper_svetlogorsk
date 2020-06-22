@@ -1,0 +1,21 @@
+.close-button {
+  position: absolute;
+  top: 40px;
+  right: 35px;
+  background: transparent;
+  z-index: 150;
+  height: 30px;
+  width: 30px;
+
+  @include phones {
+    right: 35px;
+  }
+}
+
+.close-button__img {
+  fill: $text-color;
+
+  &:hover {
+    fill: $links-color;
+  }
+}

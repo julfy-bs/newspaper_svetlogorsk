@@ -1,9 +1,15 @@
 .contacts {
   padding-right: 100px;
   border-right: solid 1px $line-color;
+
+  @include tablets {
+    padding-right: 20px;
+  }
 }
 
-.copyright {}
+.footer__right {
+  margin-left: 20px;
+}
 
 .text {
   margin-bottom: 20px;
@@ -28,4 +34,13 @@
   font-weight: 300;
   line-height: 18px;
   padding-bottom: 50px;
+
+  @include tablets {
+    margin-bottom: 100px;
+  }
+
+  @include phones {
+    align-items: start;
+    margin-bottom: 0;
+  }
 }

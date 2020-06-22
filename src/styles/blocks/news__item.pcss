@@ -18,8 +18,12 @@
 
     &:last-child {
       border-bottom: solid 1px transparent;
-      
+
     }
+  }
+
+  @include phones {
+    margin-right: 0;
   }
 }
 
@@ -41,6 +45,16 @@
     line-height: 26px;
     margin-bottom: 10px;
   }
+
+  &:hover {
+    color: $links-color;
+  }
+
+  &--slider {
+    margin-bottom: 10px;
+    max-height: 130px;
+    overflow: hidden;
+  }
 }
 
 .news__intro {
@@ -55,7 +69,14 @@
     line-height: 25px;
     max-width: 295px;
     margin-bottom: 25px;
+
+    @include phones {
+      max-width: 100%;
+      margin-bottom: 15px;
+    }
   }
+
+  
 }
 
 .news__data {
@@ -77,6 +98,14 @@
 
 
   }
+
+  &--slider {
+    margin-bottom: 100px;
+
+    @include phones {
+      margin-bottom: 200px; 
+    }
+  }
 }
 
 .news__link {
@@ -86,9 +115,31 @@
   line-height: 23px;
   margin-right: 215px;
   text-decoration: none;
+  border: solid 2px transparent;
 
   &:last-child {
     margin-right: 0;
   }
 
+  &:hover {
+    border-bottom: solid 2px $links-color;
+  }
+
+  @include tablets {
+    margin-right: 140px;
+  }
+
+  @include phones {
+    margin-right: 0;
+  }
+}
+
+.news__image {
+  position: relative;
+
+  @include phones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
