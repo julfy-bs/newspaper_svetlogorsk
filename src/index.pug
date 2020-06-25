@@ -12,24 +12,43 @@ html(lang="ru")
       .container
         section.section.welcome-section#welcome
           header.header
-            .header__logo
-              +image('content/logo.jpg', 'header__logo-img')
-            .header__links
-              - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
-                ul.socials.header__socials
-                  each item in icons
-                    li.socials__item
-                      a(href="#").socials__link
-                        +icon(item, "socials__icon")
-            .header__utility
-              .burger-menu#hamburger-menu-link
-                - var icons = ["menu"]
-                  each item in icons
-                    +icon(item, "menu-icon")
-              .search#search-link
-                - var icons = ["search"]
-                  each item in icons
-                    +icon(item, "search-icon")
+            .header__menu
+              - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['main', 'popular', 'short']];
+              ul.header__menu-list
+                each item, index in menu[0]
+                  li.header__menu-item
+                    a.header__menu-link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+              - var icons = ["version"];
+              ul.header__menu-version.version
+                each item in icons
+                  li.version__item
+                    a(href="#").version__link
+                      +icon(item, "version__icon")
+              .header__menu-age +16
+
+
+            .header__main
+              .header__logo
+                +image('content/logo.jpg', 'header__logo-img')
+              .header__links
+                .header__links-socials
+                  - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
+                    ul.socials.header__socials
+                      each item in icons
+                        li.socials__item
+                          a(href="#").socials__link
+                            +icon(item, "socials__icon")
+                .header__utility
+                  .burger-menu#hamburger-menu-link
+                    - var icons = ["menu"]
+                      each item in icons
+                        +icon(item, "menu-icon")
+                  .search#search-link
+                    label.search__block
+                      input(type="text" name="name" onfocusout="myFocusFunction" placeholder="Поиск по сайту ..." required).search__input
+                    - var icons = ["search"]
+                      each item in icons
+                        +icon(item, "search-icon")
             nav.hamburger-menu#hamburger-menu
               - var menu = [['Главное', 'Популярные публикации', 'В регионе', 'В России', 'В мире', 'Официально', 'Фотогалерея', 'Обратная связь'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form']];
               ul.menu__list
@@ -325,4 +344,3 @@ html(lang="ru")
               each item in icons
                 +icon(item, "arrow-up__icon")
 
-        

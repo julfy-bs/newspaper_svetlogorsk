@@ -1,0 +1,50 @@
+.header__menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.header__menu-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+}
+
+.header__menu-item {
+  color: $grey;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+  margin-right: 30px;
+
+  @include tablets {}
+}
+
+.header__menu-link {
+  text-decoration: none;
+
+  &:hover {
+    color: $links-color;
+  }
+}
+
+.version {
+  max-width: 44px;
+  max-height: 13px;
+  padding-bottom: 20px;
+  margin-right: 20px;
+}
+
+.version__icon {
+  height: 100%;
+  width: 100%;
+}
+
+.header__menu-age {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 18px;
+}
