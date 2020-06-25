@@ -44,7 +44,7 @@
   font-weight: 700;
   line-height: 48px;
   border: none;
-  opacity: 1;
+  opacity: .5;
   width: 470px;
   border: 2px solid transparent;
   padding-left: 10px;
@@ -54,10 +54,7 @@
     outline: none;
     border-bottom: 2px solid $links-color;
 
-    &+.form__icon {
-      fill: #ff9a00;
-      opacity: 1;
-    }
+    
   }
 
   @include phones {
@@ -66,23 +63,13 @@
   }
 }
 
-.form__icon {
-  width: 30px;
-  height: 30px;
-  opacity: 0.3;
-  fill: #ffffff;
-  position: absolute;
-  top: 70px;
-  left: 5px;
-}
-
 .form-input__textarea {
   color: currentColor;
   font-size: 18px;
   font-weight: 700;
   line-height: 48px;
   border: none;
-  opacity: 1;
+  opacity: .5;
   border: 2px solid transparent;
   width: 470px;
   height: 100px;
@@ -92,11 +79,6 @@
   &:focus {
     outline: none;
     border-bottom: 2px solid $links-color;
-
-    &+.form__icon {
-      fill: #ff9a00;
-      opacity: 1;
-    }
   }
 
   @include phones {
@@ -122,6 +104,6 @@
   cursor: pointer;
 
   &:hover {
-    background-color: black;
+    background-color: $text-color;
   }
 }

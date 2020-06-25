@@ -12,26 +12,45 @@ html(lang="ru")
       .container
         section.section.welcome-section#welcome
           header.header
-            .header__logo
-              +image('content/logo.jpg', 'header__logo-img')
-            .header__links
-              - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
-                ul.socials.header__socials
-                  each item in icons
-                    li.socials__item
-                      a(href="#").socials__link
-                        +icon(item, "socials__icon")
-            .header__utility
-              .burger-menu#hamburger-menu-link
-                - var icons = ["menu"]
-                  each item in icons
-                    +icon(item, "menu-icon")
-              .search#search-link
-                - var icons = ["search"]
-                  each item in icons
-                    +icon(item, "search-icon")
+            .header__menu
+              - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['main', 'popular', 'short']];
+              ul.header__menu-list
+                each item, index in menu[0]
+                  li.header__menu-item
+                    a.header__menu-link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+              - var icons = ["version"];
+              ul.header__menu-version.version
+                each item in icons
+                  li.version__item
+                    a(href="#").version__link
+                      +icon(item, "version__icon")
+              .header__menu-age +16
+
+
+            .header__main
+              .header__logo
+                +image('content/logo.jpg', 'header__logo-img')
+              .header__links
+                .header__links-socials
+                  - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
+                    ul.socials.header__socials
+                      each item in icons
+                        li.socials__item
+                          a(href="#").socials__link
+                            +icon(item, "socials__icon")
+                .header__utility
+                  .burger-menu#hamburger-menu-link
+                    - var icons = ["menu"]
+                      each item in icons
+                        +icon(item, "menu-icon")
+                  .search#search-link
+                    label.search__block
+                      input(type="text" name="name" onfocusout="myFocusFunction" placeholder="Поиск по сайту ..." required).search__input
+                    - var icons = ["search"]
+                      each item in icons
+                        +icon(item, "search-icon")
             nav.hamburger-menu#hamburger-menu
-              - var menu = [['Главное', 'Популярные публикации', 'В регионе', 'В России', 'В мире', 'Официально', 'Фотогалерея', 'Обратная связь'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form']];
+              - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form', 'slider-form']];
               ul.menu__list
                 each item, index in menu[0]
                   li.menu__item
@@ -46,7 +65,7 @@ html(lang="ru")
                 +icon('remove', 'close-button__img', '20')
 
           nav.nav-menu
-            - var menu = [['Главное', 'Популярные публикации', 'В регионе', 'В России', 'В мире', 'Официально', 'Фотогалерея', 'Обратная связь'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form']];
+            - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form', 'slider-form']];
             ul.nav-menu__list
               each item, index in menu[0]
                 li.nav-menu__item
@@ -54,7 +73,7 @@ html(lang="ru")
         main.main
           section.section.news#main
             h1.section__title Главное
-            .news__row
+            .news__row.news__row--active
               .news__item
                 h3.news__title.news__title--active Международный стратегический форум по интеллектуальной собственности IPQuorum 2019
                 p.news__intro.news__intro--active С 10 по 12 апреля 2019 года в Калининграде состоится международный стратегический форум по интеллектуальной собственности IPQuorum 2019. ...
@@ -75,7 +94,7 @@ html(lang="ru")
                 .news__data 19 Июня 2020 | 17:40
           section.section.popular#popular
             h1.section__title Популярные публикации
-            .news__row
+            .news__row.news__row--active
               .news__item
                 h3.news__title.news__title--active Не попадитесь на уловки мошенников!
                 p.news__intro.news__intro--active В последнее время участились случаи, когда нечистые на руку дельцы, не имея на то никаких оснований, призывают пенсионеров обращаться к ним за бесплатной юридической консультацией для якобы перерасчета пенсий граждан.
@@ -194,9 +213,6 @@ html(lang="ru")
                   h3.news__title.news__title--short В Пусане задержали четырех российских моряков за попытку ввоза наркотиков в Южную Корею
                   .news__data.news__data--short 19 Июня 2020 | 17:40
             .news__row.news__row--link 
-              a.news__link(href="#") Все новости региона
-              a.news__link(href="#") Все новости в России
-              a.news__link(href="#") Все новости в мире
           section.section.officially#officially
             h1.section__title Официально
             .news__row
@@ -242,10 +258,9 @@ html(lang="ru")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
             .news__row.news__row--link 
-              a.news__link(href="#") Все официальные новости
           section.section.slider-form#slider-form
             .news__row.news__row--slider-form
-              .container.slider__container
+              .slider__container
                 .slider-form__wrapper
                   .news__column
                     h1.section__title.section__title--slider-form Фотогалерея
@@ -288,7 +303,7 @@ html(lang="ru")
                           label.form__block
                             textarea(name="comment" placeholder="Текст сообщения (123 символа) ... " required).form-input.form-input__textarea
                         .g-recaptcha
-                          +image("content/slider1.jpg", "img--captcha img")
+                          +image("content/captcha.jpg", "img--captcha img")
                         .form__row
                           input(type="text" name="" placeholder="Введите код с картинки" required).form__input.form__input--name
                           .form__error
@@ -300,7 +315,13 @@ html(lang="ru")
                     each item in icons
                       li.socials__item
                         a(href="#").socials__link
-                          +icon(item, "socials__icon")          
+                          +icon(item, "socials__icon")
+              nav.nav-menu
+                - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form', 'slider-form']];
+                ul.nav-menu__list
+                  each item, index in menu[0]
+                    li.nav-menu__item
+                      a.nav-menu__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
         footer.footer
           .footer__left
             .contacts
@@ -325,4 +346,3 @@ html(lang="ru")
               each item in icons
                 +icon(item, "arrow-up__icon")
 
-        

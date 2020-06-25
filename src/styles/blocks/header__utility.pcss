@@ -1,6 +1,10 @@
 .header__utility {
   display: flex;
   flex-flow: row nowrap;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  // margin-left: 130px;
 }
 
 .menu-icon,
@@ -15,6 +19,80 @@
   }
 }
 
+.search-icon {
+  position: absolute;
+  right: 3px;
+  top: 22%;
+
+}
+
 .menu-icon {
   margin-right: 30px;
+}
+
+.search {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  height: 100%;
+  max-width: 500px;
+
+  align-items: center;
+  position: relative;
+}
+
+.search__block {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+
+  &:last-child {
+    margin: 0;
+  }
+
+  @include phones {
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
+}
+
+.search__input {
+  max-width: 250px;
+  max-height: 40px;
+  height: 40px;
+  border: none;
+  color: currentColor;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  opacity: 1;
+  padding-left: 10px;
+
+  &:focus {
+    width: 485px;
+    max-width: 100%;
+    height: 40px;
+    outline: solid 1px $grey;
+    animation: animateWidth .2s;
+  }
+}
+
+.focus__search--active {
+  padding: 0;
+
+  & .header__links-socials {
+    & .header__socials {
+      display: none;
+    }
+  }
+}
+
+@keyframes animateWidth {
+  0% {
+      width: 250px;
+  }
+
+  100% {
+      width: 485px;
+  }
 }
