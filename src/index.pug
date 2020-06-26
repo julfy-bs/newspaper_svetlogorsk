@@ -25,8 +25,6 @@ html(lang="ru")
                     a(href="#").version__link
                       +icon(item, "version__icon")
               .header__menu-age +16
-
-
             .header__main
               .header__logo
                 +image('content/logo.jpg', 'header__logo-img')
@@ -39,17 +37,29 @@ html(lang="ru")
                           a(href="#").socials__link
                             +icon(item, "socials__icon")
                 .header__utility
-                  .burger-menu#hamburger-menu-link
-                    - var icons = ["menu"]
-                      each item in icons
-                        +icon(item, "menu-icon")
                   .search#search-link
                     label.search__block
                       input(type="text" name="name" onfocusout="myFocusFunction" placeholder="Поиск по сайту ..." required).search__input
                     - var icons = ["search"]
                       each item in icons
                         +icon(item, "search-icon")
+                  .burger-menu#hamburger-menu-link
+                    - var icons = ["menu"]
+                      each item in icons
+                        +icon(item, "menu-icon")     
             nav.hamburger-menu#hamburger-menu
+              .burger-header__menu
+                - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['main', 'popular', 'short']];
+                ul.header__menu-list
+                  each item, index in menu[0]
+                    li.header__menu-item
+                      a.header__menu-link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+                - var icons = ["version"];
+                ul.header__menu-version.version
+                  each item in icons
+                    li.version__item
+                      a(href="#").version__link
+                        +icon(item, "version__icon")
               - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form', 'slider-form']];
               ul.menu__list
                 each item, index in menu[0]
@@ -63,7 +73,6 @@ html(lang="ru")
                       +icon(`${item}`, 'socials__icon')
               a.close-button#close-nav-button(href="#")
                 +icon('remove', 'close-button__img', '20')
-
           nav.nav-menu
             - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form', 'slider-form']];
             ul.nav-menu__list
@@ -74,24 +83,28 @@ html(lang="ru")
           section.section.news#main
             h1.section__title Главное
             .news__row.news__row--active
-              .news__item
+              .news__item.news__item--main
                 h3.news__title.news__title--active Международный стратегический форум по интеллектуальной собственности IPQuorum 2019
                 p.news__intro.news__intro--active С 10 по 12 апреля 2019 года в Калининграде состоится международный стратегический форум по интеллектуальной собственности IPQuorum 2019. ...
                 .news__data.news__data--active 19 Июня 2020 | 17:40
               +image("content/top-news.jpg", "img--big news__img")
             .news__row
-              .news__item
+              .news__item.news__item--main
                 h3.news__title В Калининградской области проходит крупнейший в России форум по вопросам интеллектуальной собственности
                 p.news__intro С 10 по 12 апреля 2019 года в Калининграде состоится международный стратегический форум по интеллектуальной собственности IPQuorum 2019. Ключевой темой станет «IP код ...
                 .news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--main
                 h3.news__title Калининградский закон об охране зеленых насаждений принят в первом чтении
                 p.news__intro В настоящий момент в регионе отсутствует единая система по управлен ию зелеными насаждениями и их восстановлению, а положения действующей редакции закона не выполняются в полной мере ...
                 .news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--main
                 h3.news__title Стартовал конкурс студенческих работ «Профстажировки 2.0» собственности
                 p.news__intro Стартует вторая волна конкурса студенческих работ проекта «Профстажировки 2.0». «Профстажировки 2.0» - огромный выбор интересных тем для научной работы ...
                 .news__data 19 Июня 2020 | 17:40
+
+            //-Рекламный баннер 990px-90px 
+            .ad.ad--horizontal
+              +image("content/ad.jpg", "img--ad")
           section.section.popular#popular
             h1.section__title Популярные публикации
             .news__row.news__row--active
@@ -101,73 +114,77 @@ html(lang="ru")
                 .news__data.news__data--active 19 Июня 2020 | 17:40
               .news__image
                 +image("content/popular.jpg", "img--big popular__img")
-                .tag Власть
+                a.tag(href="#") Власть
             .news__row
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/1.jpg", "img popular__img")
-                  .tag Экономика
+                  a.tag(href="#") Экономика
                 h3.news__title Стартовал конкурс студенческих работ «Профстажировки 2.0» собственности
                 p.news__intro Огромный выбор интересных тем для научной работы, приглашение на стажировку на конкретном предприятии, опытные наставники, предложение о работе после стажировки для самых ... лучших и многое другое. ...
                 .news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/2.jpg", "img popular__img")
-                  .tag События
+                  a.tag(href="#") События
                 h3.news__title Алексей Архиповский Концерт
                 p.news__intro Архиповский желанный гость на самых престижных концертных площадках мира. Ему аплодировали президенты и королевские особы, его выступления принимаются зрителями с восторгом, где бы он не играл – на лужайке Белого Дома или в церковном соборе, на стадионе или камерном концертном зале. ...
                 .news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/3.jpg", "img popular__img")
-                  .tag Ваше здоровье
+                  a.tag(href="#") Ваше здоровье
                 h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
                 p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
                 .news__data 19 Июня 2020 | 17:40
             .news__row
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/1.jpg", "img popular__img")
-                  .tag Экономика
+                  a.tag(href="#") Экономика
                 h3.news__title Стартовал конкурс студенческих работ «Профстажировки 2.0» собственности
                 p.news__intro Огромный выбор интересных тем для научной работы, приглашение на стажировку на конкретном предприятии, опытные наставники, предложение о работе после стажировки для самых ... лучших и многое другое. ...
                 .news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/2.jpg", "img popular__img")
-                  .tag События
+                  a.tag(href="#") События
                 h3.news__title Алексей Архиповский Концерт
                 p.news__intro Архиповский желанный гость на самых престижных концертных площадках мира. Ему аплодировали президенты и королевские особы, его выступления принимаются зрителями с восторгом, где бы он не играл – на лужайке Белого Дома или в церковном соборе, на стадионе или камерном концертном зале. ...
                 .news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/3.jpg", "img popular__img")
-                  .tag Ваше здоровье
+                  a.tag(href="#") Ваше здоровье
                 h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
                 p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
                 .news__data 19 Июня 2020 | 17:40
             .news__row
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/1.jpg", "img popular__img")
-                  .tag Экономика
+                  a.tag(href="#") Экономика
                 h3.news__title Стартовал конкурс студенческих работ «Профстажировки 2.0» собственности
                 p.news__intro Огромный выбор интересных тем для научной работы, приглашение на стажировку на конкретном предприятии, опытные наставники, предложение о работе после стажировки для самых ... лучших и многое другое. ...
                 .news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/2.jpg", "img popular__img")
-                  .tag События
+                  a.tag(href="#") События
                 h3.news__title Алексей Архиповский Концерт
                 p.news__intro Архиповский желанный гость на самых престижных концертных площадках мира. Ему аплодировали президенты и королевские особы, его выступления принимаются зрителями с восторгом, где бы он не играл – на лужайке Белого Дома или в церковном соборе, на стадионе или камерном концертном зале. ...
                 .news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--popular
                 .news__image
                   +image("content/3.jpg", "img popular__img")
-                  .tag Ваше здоровье
+                  a.tag(href="#") Ваше здоровье
                 h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
                 p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
                 .news__data 19 Июня 2020 | 17:40
+
+            //-Рекламный баннер 990px-90px 
+            .ad.ad--horizontal
+              +image("content/ad.jpg", "img--ad")
           section.section.short#short
             .short__wrapper
               .news__column
@@ -216,48 +233,52 @@ html(lang="ru")
           section.section.officially#officially
             h1.section__title Официально
             .news__row
-              .news__item
+              .news__item.news__item--officially
                 .news__image
                   +image("content/officially1.jpg", "img--small popular__img")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--officially
                 .news__image
                   +image("content/officially1.jpg", "img--small popular__img")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--officially
                 .news__image
                   +image("content/officially1.jpg", "img--small popular__img")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--officially
                 .news__image
                   +image("content/officially1.jpg", "img--small popular__img")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
             .news__row
-              .news__item
+              .news__item.news__item--officially
                 .news__image
                   +image("content/officially1.jpg", "img--small popular__img")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--officially
                 .news__image
                   +image("content/officially1.jpg", "img--small popular__img")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--officially
                 .news__image
                   +image("content/officially1.jpg", "img--small popular__img")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
-              .news__item
+              .news__item.news__item--officially
                 .news__image
                   +image("content/officially1.jpg", "img--small popular__img")
                 h3.news__title.news__title Прокурор Центрального района г. Калининграда разъясняет
                 .news__data.news__data 19 Июня 2020 | 17:40
             .news__row.news__row--link 
+
+            //-Рекламный баннер 990px-90px 
+            .ad.ad--horizontal
+              +image("content/ad.jpg", "img--ad")
           section.section.slider-form#slider-form
             .news__row.news__row--slider-form
               .slider__container
@@ -338,7 +359,6 @@ html(lang="ru")
             p.text Перепечатка материалов – с разрешения редакции.<br>За достоверность рекламы ответственность несёт рекламодатель.<br>Все рекламируемые товары и услуги подлежат сертификации и лицензированию.<br>Мнения авторов и редакции могут не совпадать.
             p.info Справки по объявлениям - у рекламодателя
             p.copyright © Вестник Светлогорска «svetvestnik.ru» 2020 <br> © Информационное агентство Инфорос 2020 
-
       .button-to-top 
         a(href="#welcome")
           .button-to-top__wrapper

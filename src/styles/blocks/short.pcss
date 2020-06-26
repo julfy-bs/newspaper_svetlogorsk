@@ -2,6 +2,10 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  
+  @include tablets {
+    flex-flow: row wrap;
+  }
 
   @include phones {
     flex-flow: column wrap;

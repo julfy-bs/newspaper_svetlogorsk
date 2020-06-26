@@ -36,7 +36,7 @@
 
     & .menu__link {
         text-decoration: none;
-        
+
         &:hover {
             color: $links-color;
         }
@@ -82,4 +82,34 @@
     @include tablets {
         display: flex;
     }
+}
+
+.burger-header__menu {
+    display: none;
+
+    @include phones {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+    }
+
+    & .header__menu-list {
+        display: none;
+
+        @include phones {
+            display: flex;
+            flex-flow: column nowrap;
+    
+        }
+
+        & .header__menu-item {
+            margin-bottom: 10px;
+        }
+    }
+
+   
+
+    
 }

@@ -12,8 +12,19 @@
   background-repeat: no-repeat;
   background-size: cover;
   min-width: 95px;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;
   }
+
+  @include tablets {
+    font-size: 12px;
+    min-width: 45px;
+  }
+
+  @include phones {
+    font-size: 10px;
+  }
+
 }

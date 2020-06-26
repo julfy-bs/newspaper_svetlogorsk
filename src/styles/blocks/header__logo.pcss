@@ -1,6 +1,17 @@
 // logo styles
 .header__logo {
   height: 100%;
-  width: 100%;
+  width: 50%;
   flex: 5;
+
+  @include phones {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+}
+
+.header__logo-img {
+  width: 450px;
+  height: 80px;
 }

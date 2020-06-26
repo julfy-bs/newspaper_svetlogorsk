@@ -1,7 +1,7 @@
 .news__item {
   margin-bottom: 60px;
   margin-right: 35px;
-  max-width: 340px;
+  flex: 25;
 
   &:hover {
     cursor: pointer;
@@ -9,6 +9,17 @@
 
   &:last-child {
     margin-right: 0;
+  }
+
+  @include tablets {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  @include phones {
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 15px;
   }
 
   &--vertical {
@@ -22,8 +33,26 @@
     }
   }
 
-  @include phones {
-    margin: 0;
+  &--main {
+    @include tablets {
+      &:nth-child(3n) {
+        display: none;
+      }
+    }
+  }
+  &--popular {
+    @include tablets {
+      &:nth-child(2n) {
+        display: none;
+      }
+    }
+  }
+  &--officially {
+    @include tablets {
+      &:nth-child(3n) {
+        display: none;
+      }
+    }
   }
 }
 
@@ -38,6 +67,10 @@
     font-size: 27px;
     line-height: 32px;
     max-width: 330px;
+
+    @include tablets {
+      max-width: 100%;
+    }
   }
 
   &--short {
@@ -54,6 +87,14 @@
     margin-bottom: 10px;
     max-height: 130px;
     overflow: hidden;
+
+    @include tablets {
+      max-height: 95px;
+    }
+
+    @include phones {
+      max-height: 70px;
+    }
   }
 }
 
@@ -70,13 +111,16 @@
     max-width: 295px;
     margin-bottom: 25px;
 
-    @include phones {
+    @include tablets {
       max-width: 100%;
+    }
+
+    @include phones {
       margin-bottom: 15px;
     }
   }
 
-  
+
 }
 
 .news__data {
@@ -85,25 +129,31 @@
   font-weight: 400;
   line-height: 23px;
 
+  @include tablets {
+    max-width: 100%;
+  }
+
   &--active {
     font-size: 18px;
     line-height: 25px;
     max-width: 295px;
+
+    @include tablets {
+      max-width: 100%;
+    }
   }
 
   &--short {
     font-size: 16px;
     line-height: 23px;
     padding-bottom: 10px;
-
-
   }
 
   &--slider {
     margin-bottom: 100px;
 
     @include phones {
-      margin-bottom: 200px; 
+      margin-bottom: 200px;
     }
   }
 }

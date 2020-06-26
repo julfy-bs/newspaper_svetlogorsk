@@ -5,6 +5,11 @@
   justify-content: flex-end;
   align-items: center;
   // margin-left: 130px;
+
+  @include phones {
+    width: 100%;
+
+  }
 }
 
 .menu-icon,
@@ -27,11 +32,10 @@
 }
 
 .menu-icon {
-  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .search {
-  display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
   height: 100%;
@@ -73,7 +77,20 @@
     max-width: 100%;
     height: 40px;
     outline: solid 1px $grey;
-    animation: animateWidth .2s;
+    animation: animateWidthDesktop .6s;
+
+    @include tablets {
+      width: 430px;
+      animation: animateWidthTablets .6s;
+
+    }
+
+
+    @include phones {
+      width: 320px;
+      animation: animateWidthPhones .4s;
+
+    }
   }
 }
 
@@ -87,12 +104,42 @@
   }
 }
 
-@keyframes animateWidth {
+@keyframes animateWidthDesktop {
   0% {
-      width: 250px;
+    width: 250px;
   }
 
   100% {
-      width: 485px;
+    width: 485px;
+  }
+}
+
+@keyframes animateWidthTablets {
+  0% {
+    width: 250px;
+  }
+
+  100% {
+    width: 430px;
+  }
+}
+
+@keyframes animateWidthTabletsMini {
+  0% {
+    width: 250px;
+  }
+
+  100% {
+    width: 430px;
+  }
+}
+
+@keyframes animateWidthPhones {
+  0% {
+    width: 250px;
+  }
+
+  100% {
+    width: 320px;
   }
 }
