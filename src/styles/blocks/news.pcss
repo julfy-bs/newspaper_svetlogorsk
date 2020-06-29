@@ -1,15 +1,10 @@
-.news {
-  display: flex;
-  flex-flow: column wrap;
-}
-
 .popular,
-.officially {
+.officially,
+.main {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  width: 30%;
-  max-width: 100%;
+  width: 100%;
 
   @include tablets {
     flex-flow: row wrap;
@@ -21,20 +16,102 @@
     margin: 0px;
   }
 
-  
+
 }
 
-.popular {
-  .news__item {
-    &:first-child {
-      display: flex;
-      flex-flow: column nowrap;
-      width: 100%;
+.news__item {
+  width: 100%;
+  margin-bottom: 60px;
+  margin-right: 35px;
 
-      
-      
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include tablets {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  @include phones {
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  &--vertical {
+    margin-bottom: 25px;
+    border-bottom: solid 1px $line-color;
+    margin-right: 0;
+
+    @include tablets {
+      margin-bottom: 40px;
     }
 
+    &:last-child {
+      border-bottom: solid 1px transparent;
+
+    }
+  }
+}
+
+.main,
+.popular {
+  >.news__item {
+    width: 32%;
+    margin-right: 0;
+    margin-bottom: 60px;
+
+    @include tablets {
+      width: 47%;
+    }
+
+    @include phones {
+      width: 100%;
+    }
+
+    &:first-child {
+      display: flex;
+      flex-flow: row-reverse nowrap;
+      justify-content: space-between;
+      width: 100%;
+
+      @include tablets {
+        flex-flow: column nowrap;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.main {
+  >.news__item {
+
+    @include tablets {
+      width: 100%;
+    }
+
+  }
+}
+
+
+.officially {
+  >.news__item {
+    width: 21%;
+    margin-right: 0;
+    margin-bottom: 60px;
+
+    @include tablets {
+      width: 49%;
+    }
+
+    @include phones {
+      width: 100%;
+    }
   }
 }
 
@@ -68,7 +145,7 @@
 
   &--active {
     @include tablets {
-      flex-direction: column-reverse;
+      flex-direction: column;
       margin-bottom: 40px;
     }
 
@@ -113,9 +190,17 @@
     margin-right: 0;
   }
 
+  @include tablets {
+    margin: 0;
+    margin-bottom: 25px;
+  }
 
   @include phones {
     margin: 0;
     margin-bottom: 25px;
+  }
+
+  .news__item {
+    width: 100%;
   }
 }

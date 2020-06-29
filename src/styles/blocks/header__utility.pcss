@@ -16,7 +16,7 @@
 .search-icon {
   width: 25px;
   height: 25px;
-  fill: $text-color;
+  fill: $grey;
   cursor: pointer;
 
   &:hover {
@@ -28,6 +28,11 @@
   position: absolute;
   right: 3px;
   top: 22%;
+  fill: $grey;
+
+  @include tablets {
+    right: 5px;
+  }
 
 }
 
@@ -80,14 +85,15 @@
     animation: animateWidthDesktop .6s;
 
     @include tablets {
-      width: 430px;
+      width: 400px;
+      max-width: 370px;
       animation: animateWidthTablets .6s;
 
     }
 
 
     @include phones {
-      width: 320px;
+      width: 240px;
       animation: animateWidthPhones .4s;
 
     }
@@ -120,7 +126,7 @@
   }
 
   100% {
-    width: 430px;
+    width: 370px;
   }
 }
 
@@ -136,10 +142,10 @@
 
 @keyframes animateWidthPhones {
   0% {
-    width: 250px;
+    width: 240px;
   }
 
   100% {
-    width: 320px;
+    width: 240px;
   }
 }

@@ -11,15 +11,6 @@
   }
 }
 
-.footer__right {
-  margin-left: 20px;
-
-  @include phones {
-    max-width: 80%;
-    margin-left: 11%;
-    width: 100%;
-  }
-}
 
 .text {
   margin-bottom: 20px;
@@ -37,16 +28,17 @@
 .footer {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   color: $grey;
   font-size: 13px;
   font-weight: 300;
   line-height: 18px;
-  padding-bottom: 50px;
+  padding: 0 50px 50px;
 
   @include tablets {
-    // margin-bottom: 100px;
+    padding: 0;
+    margin: 0;
   }
 
   @include phones {
@@ -60,8 +52,20 @@
 .footer__left {
   @include phones {
     max-width: 80%;
+    padding: 0;
+    margin: 0;
     margin-bottom: 20px;
-    margin-left: 11%;
+    width: 100%;
+  }
+}
+
+.footer__right {
+  margin-left: 50px;
+
+  @include phones {
+    max-width: 80%;
+    padding: 0;
+    margin: 0;
     width: 100%;
   }
 }

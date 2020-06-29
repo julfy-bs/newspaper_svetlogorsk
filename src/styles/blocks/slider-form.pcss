@@ -1,3 +1,9 @@
+.slider-form {
+  @include tablets {
+    width: 100%;
+  }
+}
+
 .slider-form__wrapper {
   display: flex;
   flex-flow: row nowrap;
@@ -13,15 +19,16 @@
 
 .slider__wrapper,
 .form__wrapper {
-  width: 533px;
-  height: 535px;
+  width: 100%;
   background-color: #f0f1f3;
   display: flex;
+  // background-color: red;
+
   align-items: center;
   justify-content: center;
 
   @include tablets {
-    margin: 0 auto;
+    // margin: 0 auto;
   }
 
   @include phones {
@@ -30,10 +37,40 @@
   }
 }
 
+
 .slider__wrapper {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
+  max-width: 535px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
   padding: 30px;
+  height: 450px;
+
+  &--title {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 30px;
+
+  }
+
+  @include tablets {
+    // margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    min-height: 720px;
+  }
+  
+  @include phones {
+    max-width: 500px;
+    max-height: 500px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 250px;
+  }
 }
 
 .slider__container {

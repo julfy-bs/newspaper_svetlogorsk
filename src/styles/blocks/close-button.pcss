@@ -7,13 +7,19 @@
   height: 30px;
   width: 30px;
 
+
+  @include phones {
+    right: 1%;
+    top: 1%;
+  }
+
   @include phones {
     right: 35px;
   }
 }
 
 .close-button__img {
-  fill: $text-color;
+  fill: $grey;
 
   &:hover {
     fill: $links-color;

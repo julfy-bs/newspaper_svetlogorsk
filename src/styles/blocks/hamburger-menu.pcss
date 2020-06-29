@@ -9,13 +9,22 @@
     flex-direction: column;
     justify-content: center;
 
-    width: 320px;
+    width: 420px;
     height: 102vh;
     padding-left: 65px;
     padding-right: 65px;
 
     background-color: #fff;
     color: $text-color;
+
+    >.version {
+        >.version__item {
+            min-width: 80px;
+            min-height: 20px;
+            width: 100%;
+
+        }
+    }
 
     & .menu__list {
         width: 215px;
@@ -101,7 +110,7 @@
         @include tablets {
             display: flex;
             flex-flow: column nowrap;
-    
+
         }
 
         & .header__menu-item {
@@ -109,7 +118,7 @@
         }
     }
 
-   
 
-    
+
+
 }
