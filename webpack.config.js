@@ -86,6 +86,7 @@ module.exports = (env, argv) => {
   const config = {
     entry: {
       main: "./src/main.js",
+      list: "./src/list/list.js",
       admin: "./src/admin/main.js"
     },
     output: {
@@ -114,8 +115,13 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "src/index.pug",
+        template: "./src/index.pug",
         chunks: ["main"]
+      }),
+      new HtmlWebpackPlugin({
+        template: "./src/list/list.pug",
+        filename: "list/list.html",
+        chunks: ["list"]
       }),
       new HtmlWebpackPlugin({
         template: "src/admin/index.pug",

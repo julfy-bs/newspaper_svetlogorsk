@@ -13,11 +13,11 @@ html(lang="ru")
         section.section.welcome-section#welcome
           header.header
             .header__menu
-              - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['main', 'popular', 'short']];
+              - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['/src/list.pug', 'popular', 'short']];
               ul.header__menu-list
                 each item, index in menu[0]
                   li.header__menu-item
-                    a.header__menu-link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+                    a.header__menu-link(href="" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
               - var icons = ["version"];
               ul.header__menu-version.version
                 each item in icons
