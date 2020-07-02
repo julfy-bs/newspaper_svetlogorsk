@@ -13,15 +13,4 @@ module.exports = {
     });
     return config;
   },
-
-  module.exports = {
-    module: {
-      rules: [
-        {
-          test: /\.inline.svg$/,
-          loader: 'svg-react-loader'
-        }
-      ]
-    }
-  },
 };

@@ -10,7 +10,7 @@
       ul.header__menu-version.version
         li.version__item
           a(href="#").version__link
-            img(:src="versionpic").version__icon
+            img(src="versionpic").version__icon
             
       .header__menu-age +16
 </template>
@@ -22,6 +22,8 @@ const items = [
 ];
 
 export default {
+  props: ["version"],
+  
   data() {
     return {
       items

@@ -9,7 +9,7 @@ export const defaultView = () => ({
   components: {headerTopMenu},
   template: `
     <headerTopMenu 
-      versionpic="./images/icons/version.svg"
+      versionpic="./src/images/icons/version.svg"
     />
   `,
 });
