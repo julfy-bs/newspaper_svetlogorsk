@@ -1,0 +1,38 @@
+.nav-items {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+}
+
+.nav-items__list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.nav-items__item {
+  color: #006ed3;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+
+  &::after {
+    content: ">";
+    margin: 0 10px;
+  }
+
+  &:last-child {
+    color: #c8c8c8;
+
+    &::after {
+      display: none;
+    }
+  }
+
+
+}
+
+.nav-items__link {
+  text-decoration: none;
+}

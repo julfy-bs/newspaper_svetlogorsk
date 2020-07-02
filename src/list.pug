@@ -1,0 +1,305 @@
+include ./mixins.pug
+
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Газета Светлогорского района Калининградской области "Вестник Светлогорска"
+  body
+    .wrapper
+      .container
+        section.section.welcome-section#welcome
+          header.header
+            .header__menu
+              - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['/src/list.pug', 'popular', 'short']];
+              ul.header__menu-list
+                each item, index in menu[0]
+                  li.header__menu-item
+                    a.header__menu-link(href="" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+              - var icons = ["version"];
+              ul.header__menu-version.version
+                each item in icons
+                  li.version__item
+                    a(href="#").version__link
+                      +icon(item, "version__icon")
+              .header__menu-age +16
+            .header__main
+              .header__logo
+                - var icons = ["logo"]
+                each item in icons
+                  +icon(item, "header__logo-img") 
+              .header__links
+                .header__links-socials
+                  - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
+                    ul.socials.header__socials
+                      each item in icons
+                        li.socials__item
+                          a(href="#").socials__link
+                            +icon(item, "socials__icon")
+                .header__utility
+                  .search#search-link
+                    label.search__block
+                      input(type="text" name="name" placeholder="Поиск по сайту ..." required).search__input
+                    - var icons = ["search"]
+                      each item in icons
+                        +icon(item, "search-icon")
+                  .burger-menu#hamburger-menu-link
+                    - var icons = ["menu"]
+                      each item in icons
+                        +icon(item, "menu-icon")     
+            nav.hamburger-menu#hamburger-menu
+              .burger-header__menu
+                - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['main', 'popular', 'short']];
+                ul.header__menu-list
+                  each item, index in menu[0]
+                    li.header__menu-item
+                      a.header__menu-link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+                - var icons = ["version"];
+                ul.header__menu-version.version
+                  each item in icons
+                    li.version__item
+                      a(href="#").version__link
+                        +icon(item, "version__icon")
+              - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form', 'slider-form']];
+              ul.menu__list
+                each item, index in menu[0]
+                  li.menu__item
+                    a.menu__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+              - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
+              ul.socials.hamburger-menu__socials
+                each item in icons
+                  li.socials__item
+                    a.socials__link(href="#" target="_blank")
+                      +icon(`${item}`, 'socials__icon')
+              a.close-button#close-nav-button(href="#")
+                +icon('remove', 'close-button__img', '20')
+          nav.nav-menu
+            - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form', 'slider-form']];
+            ul.nav-menu__list
+              each item, index in menu[0]
+                li.nav-menu__item
+                  a.nav-menu__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+
+        //-Рекламный баннер 990px-90px 
+        .ad.ad--horizontal
+          +image("content/ad.jpg", "img--ad")
+
+        nav.nav-items
+          - var menu = [['Главная', 'Общество'], ['#', '#']];
+          ul.nav-items__list
+            each item, index in menu[0]
+              li.nav-items__item
+                a.nav-items__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+
+
+        h1.section__title Общество
+        section.section.list
+          .news__item
+            .news__image
+              +image("content/popular.jpg", "img popular__img")
+            .news__content
+              h3.news__title Не попадитесь на уловки мошенников!
+              p.news__intro В последнее время участились случаи, когда нечистые на руку дельцы, не имея на то никаких оснований, призывают пенсионеров обращаться к ним за бесплатной юридической консультацией для якобы перерасчета пенсий граждан.
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/1.jpg", "img popular__img")
+            .news__content
+              h3.news__title Стартовал конкурс студенческих работ «Профстажировки 2.0» собственности
+              p.news__intro Огромный выбор интересных тем для научной работы, приглашение на стажировку на конкретном предприятии, опытные наставники, предложение о работе после стажировки для самых ... лучших и многое другое. ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/2.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Алексей Архиповский Концерт
+              p.news__intro Архиповский желанный гость на самых престижных концертных площадках мира. Ему аплодировали президенты и королевские особы, его выступления принимаются зрителями с восторгом, где бы он не играл – на лужайке Белого Дома или в церковном соборе, на стадионе или камерном концертном зале. ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/3.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
+              p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/1.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Стартовал конкурс студенческих работ «Профстажировки 2.0» собственности
+              p.news__intro Огромный выбор интересных тем для научной работы, приглашение на стажировку на конкретном предприятии, опытные наставники, предложение о работе после стажировки для самых ... лучших и многое другое. ...
+              .news__data 19 Июня 2020 | 17:40
+
+          //-Рекламный баннер 990px-90px 
+          .ad.ad--horizontal
+            +image("content/ad.jpg", "img--ad")
+
+          .news__item
+            .news__image
+              +image("content/2.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Алексей Архиповский Концерт
+              p.news__intro Архиповский желанный гость на самых престижных концертных площадках мира. Ему аплодировали президенты и королевские особы, его выступления принимаются зрителями с восторгом, где бы он не играл – на лужайке Белого Дома или в церковном соборе, на стадионе или камерном концертном зале. ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/3.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
+              p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/1.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Стартовал конкурс студенческих работ «Профстажировки 2.0» собственности
+              p.news__intro Огромный выбор интересных тем для научной работы, приглашение на стажировку на конкретном предприятии, опытные наставники, предложение о работе после стажировки для самых ... лучших и многое другое. ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/2.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Алексей Архиповский Концерт
+              p.news__intro Архиповский желанный гость на самых престижных концертных площадках мира. Ему аплодировали президенты и королевские особы, его выступления принимаются зрителями с восторгом, где бы он не играл – на лужайке Белого Дома или в церковном соборе, на стадионе или камерном концертном зале. ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/3.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
+              p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
+              .news__data 19 Июня 2020 | 17:40
+
+          //-Рекламный баннер 990px-90px 
+          .ad.ad--horizontal
+            +image("content/ad.jpg", "img--ad")
+
+          .news__item
+            .news__image
+              +image("content/3.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
+              p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/3.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
+              p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/3.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
+              p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
+              .news__data 19 Июня 2020 | 17:40
+          .news__item
+            .news__image
+              +image("content/3.jpg", "img popular__img")
+            .news__content                
+              h3.news__title Исследователь БФУ им. И. Канта представляет «вакцину от старости»
+              p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
+              .news__data 19 Июня 2020 | 17:40
+
+          form.form
+            .btn-more__wrapper
+              input(type="submit" value="Отправить").btn-more  
+
+        section.section.slider-form#slider-form
+          .news__row.news__row--slider-form
+            .slider__container
+              .slider-form__wrapper
+
+                //- Слайдер
+
+                .news__column
+                  h1.section__title.section__title--slider-form Фотогалерея
+                  .slider__wrapper
+                    .slider__left
+                      - var icons = ["arrow-down"]
+                        each item in icons
+                          +icon(item, "slider-arrow--left slider-arrow")
+                    .slider__main
+                      .slider__item
+                        +image("content/slider1.jpg", "img--slider slider-img popular__img")
+                        h3.news__title.news__title--slider Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        .news__data.news__data--slider 19 Июня 2020 | 17:40
+                      .slider__item
+                        +image("content/1.jpg", "img--slider slider-img popular__img")
+
+                        h3.news__title.news__title--slider Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptatum possimus nesciunt quia facere cum.
+                        .news__data.news__data--slider 19 Июня 2020 | 17:40
+                      .slider__item
+                        +image("content/2.jpg", "img--slider slider-img popular__img")
+
+                        h3.news__title.news__title--slider Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi odit voluptatibus saepe, nostrum asperiores assumenda soluta est nulla ab, impedit, totam tenetur! Ipsa, autem beatae?
+                        .news__data.news__data--slider 19 Июня 2020 | 17:40
+
+                    .slider__right
+                      - var icons = ["arrow-down"]
+                        each item in icons
+                          +icon(item, "slider-arrow--right slider-arrow")
+                //- Форма 
+
+                .news__column
+                  h1.section__title.section__title--slider-form Обратная связь
+                  .form__wrapper
+                    form.form#form
+                      .form__row
+                        label.form__block
+                          input(type="text" name="name" placeholder="Имя" required).form__input.form__input--name
+                      .form__row
+                        label.form__block
+                          input(type="email" name="name" placeholder="Ваш E-mail" required).form__input.form__input--email
+                      .form__row
+                        label.form__block
+                          textarea(name="comment" placeholder="Текст сообщения (123 символа) ... " required).form-input.form-input__textarea
+                      .g-recaptcha
+                        +image("content/captcha.jpg", "img--captcha img")
+                      .form__row
+                        input(type="text" name="" placeholder="Введите код с картинки" required).form__input.form__input--name
+                        .form__error
+                      .form__row
+                        input(type="submit" value="Отправить").form__button#sendButton  
+            .news__row--socials
+              - var icons = ["vk", "facebook", "odnoklassniki", "twitter", "insta"];
+                ul.socials
+                  each item in icons
+                    li.socials__item
+                      a(href="#").socials__link
+                        +icon(item, "socials__icon")
+            nav.nav-menu
+              - var menu = [['Экономика', 'Власть', 'События', 'Ваше здоровье', 'Общество', 'Проишествия', 'Официально', 'Образование', 'Культура'], ['main', 'popular', 'short', 'short', 'short', 'officially', 'slider-form', 'slider-form', 'slider-form']];
+              ul.nav-menu__list
+                each item, index in menu[0]
+                  li.nav-menu__item
+                    a.nav-menu__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+        footer.footer
+          .footer__left
+            .contacts
+              .contacts__address
+                span.bold Адрес редакции:  <br>
+                p 238560, Калининградская область, <br>г. Светлогорск, <br> Калининградский проспект, 77а
+              .contacts__phone
+                span.bold Телефон/факс: <br>
+                p 8 (40153) 333-05
+              .contacts__email      
+                span.bold E-mail:
+                p info@svetvestnik.ru
+          .footer__right
+            p.text Перепечатка материалов – с разрешения редакции.<br>За достоверность рекламы ответственность несёт рекламодатель.<br>Все рекламируемые товары и услуги подлежат сертификации и лицензированию.<br>Мнения авторов и редакции могут не совпадать.
+            p.info Справки по объявлениям - у рекламодателя
+            p.copyright © Вестник Светлогорска «svetvestnik.ru» 2020 <br> © Информационное агентство Инфорос 2020 
+      .button-to-top 
+        a(href="#welcome")
+          .button-to-top__wrapper
+            - var icons = ["arrow-down"]
+              each item in icons
+                +icon(item, "arrow-up__icon")
+
+
+
