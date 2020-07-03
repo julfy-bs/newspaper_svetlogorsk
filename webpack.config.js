@@ -87,7 +87,6 @@ module.exports = (env, argv) => {
     entry: {
       main: "./src/main.js",
       list: "./src/list.js",
-      admin: "./src/admin/main.js"
     },
     output: {
       path: path.resolve(__dirname, "./dist"),
@@ -122,11 +121,6 @@ module.exports = (env, argv) => {
         template: "./src/list.pug",
         filename: "list.html",
         chunks: ["list"]
-      }),
-      new HtmlWebpackPlugin({
-        template: "src/admin/index.pug",
-        filename: "admin/index.html",
-        chunks: ["admin"]
       }),
       new SpriteLoaderPlugin({ plainSprite: true }),
       new VueLoaderPlugin()
