@@ -134,9 +134,10 @@
 
     >.news__image {
       margin-right: 20px;
+      max-width: 345px;
 
       @include tablets {
-        // width: 100%;
+        max-width: 100%;
       }
 
       @include phones {
@@ -151,8 +152,7 @@
       flex-flow: column wrap;
       width: 100%;
 
-      @include tablets {
-      }
+      @include tablets {}
     }
 
   }
