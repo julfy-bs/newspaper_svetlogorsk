@@ -13,11 +13,11 @@ html(lang="ru")
         section.section.welcome-section#welcome
           header.header
             .header__menu
-              - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['/src/list.pug', 'popular', 'short']];
+              - var menu = [['Об издании', 'Рекламодателям', 'Контакты'], ['/list.html', 'popular', 'short']];
               ul.header__menu-list
                 each item, index in menu[0]
                   li.header__menu-item
-                    a.header__menu-link(href="" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
+                    a.header__menu-link(href="" + menu[1][index]) #{item}
               - var icons = ["version"];
               ul.header__menu-version.version
                 each item in icons
@@ -26,7 +26,7 @@ html(lang="ru")
                       +icon(item, "version__icon")
               .header__menu-age +16
             .header__main
-              .header__logo
+              a.header__logo
                 - var icons = ["logo"]
                 each item in icons
                   +icon(item, "header__logo-img") 

@@ -26,7 +26,7 @@ html(lang="ru")
                       +icon(item, "version__icon")
               .header__menu-age +16
             .header__main
-              .header__logo
+              a.header__logo(href="/index.html")
                 - var icons = ["logo"]
                 each item in icons
                   +icon(item, "header__logo-img") 
@@ -205,9 +205,9 @@ html(lang="ru")
               p.news__intro Недавно в научном журнале Expert Review of Vaccines вышла статья главного научного сотрудника Центра медицинских биотехнологий БФУ им. Канта профессора Виктора Селедцова и научного ...
               .news__data 19 Июня 2020 | 17:40
 
-          form.form
+          form
             .btn-more__wrapper
-              input(type="submit" value="Отправить").btn-more  
+              input(type="submit" value="Показать ещё новости").btn-more  
 
         section.section.slider-form#slider-form
           .news__row.news__row--slider-form
